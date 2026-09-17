@@ -2,7 +2,14 @@ import streamlit as st
 import joblib
 import numpy as np
 
-# Load the saved model
+import os
+import joblib
+
+# Resolve absolute path relative to App.py
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+model_path = os.path.join(BASE_DIR, 'linear_reg.sav')
+
+model = joblib.load(model_path)
 model = joblib.load(open('linear_reg.sav', 'rb'))
 
 st.title('Sales Prediction App')
